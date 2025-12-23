@@ -141,10 +141,7 @@ export default function Login() {
                 )}
               </div>
 
-              <div className="bg-blue-50 p-3 rounded-lg text-sm text-blue-700">
-                <p className="font-medium">Demo Credentials:</p>
-                <p>Admin: admin@college.com / admin123</p>
-              </div>
+              
             </CardContent>
 
             <CardFooter className="flex flex-col space-y-4">
