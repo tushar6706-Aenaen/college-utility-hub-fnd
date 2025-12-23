@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import api from '@/lib/axios'
+import api from '@/lib/api'
 import { toast } from 'sonner'
 import { useAuth } from '@/context/AuthContext'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import api from '@/lib/axios'
+import api from '@/lib/api' // Changed from '@/lib/axios'
 
 const AuthContext = createContext(null)
 
@@ -26,14 +26,13 @@ export const AuthProvider = ({ children }) => {
     
     if (token && storedUser) {
       try {
-        // Verify token is still valid
         const response = await api.get('/auth/me')
         if (response.data.success) {
           setUser(response.data.data)
           setIsAuthenticated(true)
         }
       } catch (error) {
-        // Token is invalid
+        console.error('Auth check failed:', error)
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setUser(null)
@@ -45,7 +44,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
+      console.log('🔐 Attempting login...') // Debug log
       const response = await api.post('/auth/login', { email, password })
+      console.log('✅ Login response:', response.data) // Debug log
+      
       if (response.data.success) {
         const { token, user } = response.data.data
         localStorage.setItem('token', token)
@@ -54,10 +56,12 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(true)
         return { success: true, user }
       }
+      return { success: false, message: 'Login failed' }
     } catch (error) {
+      console.error('❌ Login error:', error)
       return {
         success: false,
-        message: error.response?.data?.message || 'Login failed'
+        message: error.response?.data?.message || error.message || 'Login failed'
       }
     }
   }
@@ -73,10 +77,11 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(true)
         return { success: true, user }
       }
+      return { success: false, message: 'Registration failed' }
     } catch (error) {
       return {
         success: false,
-        message: error.response?.data?.message || 'Registration failed'
+        message: error.response?.data?.message || error.message || 'Registration failed'
       }
     }
   }
@@ -104,4 +109,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   )
 }
-
