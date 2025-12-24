@@ -204,8 +204,8 @@ export default function AdminDashboard() {
       >
         {/* Recent Notices */}
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div>
+          <CardHeader className="flex  flex-row items-center justify-between">
+            <div className=''>
               <CardTitle>Recent Notices</CardTitle>
               <CardDescription>Latest notices posted</CardDescription>
             </div>
