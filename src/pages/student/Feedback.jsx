@@ -61,8 +61,8 @@ export default function StudentFeedback() {
       <div className="max-w-2xl mx-auto">
         <Card>
           <CardContent className="p-12 text-center">
-            <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="h-8 w-8 text-green-600" />
+            <div className="h-16 w-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="h-8 w-8 text-gray-700 dark:text-gray-300" />
             </div>
             <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
             <p className="text-muted-foreground mb-6">
@@ -207,32 +207,32 @@ export default function StudentFeedback() {
             <CardContent>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-start">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gray-500 dark:bg-gray-400 mt-2 mr-2 flex-shrink-0" />
                   Be specific about the issue or suggestion
                 </li>
                 <li className="flex items-start">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gray-500 dark:bg-gray-400 mt-2 mr-2 flex-shrink-0" />
                   Include relevant details like location or time
                 </li>
                 <li className="flex items-start">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gray-500 dark:bg-gray-400 mt-2 mr-2 flex-shrink-0" />
                   Suggest possible solutions if applicable
                 </li>
                 <li className="flex items-start">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2 mr-2 flex-shrink-0" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-gray-500 dark:bg-gray-400 mt-2 mr-2 flex-shrink-0" />
                   Keep it constructive and respectful
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="bg-blue-50 border-blue-200">
+          <Card className="bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
             <CardContent className="p-4">
               <div className="flex items-start space-x-3">
-                <MessageSquare className="h-5 w-5 text-blue-600 mt-0.5" />
+                <MessageSquare className="h-5 w-5 text-gray-700 dark:text-gray-300 mt-0.5" />
                 <div>
-                  <p className="font-medium text-blue-900">Anonymous Option</p>
-                  <p className="text-sm text-blue-700 mt-1">
+                  <p className="font-medium text-gray-900 dark:text-gray-100">Anonymous Option</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
                     If you prefer to keep your identity private, check the anonymous option. 
                     Your feedback will still be reviewed with the same priority.
                   </p>

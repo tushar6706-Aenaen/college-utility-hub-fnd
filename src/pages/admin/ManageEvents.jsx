@@ -338,7 +338,7 @@ export default function ManageEvents() {
                     </TableCell>
                     <TableCell>
                       {isUpcoming(event.date) ? (
-                        <Badge className="bg-green-100 text-green-700">Upcoming</Badge>
+                        <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">Upcoming</Badge>
                       ) : (
                         <Badge variant="secondary">Past</Badge>
                       )}

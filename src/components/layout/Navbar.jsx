@@ -53,9 +53,9 @@ export default function Navbar({ onMenuClick }) {
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
           >
-            <GraduationCap className="h-7 w-7 text-blue-600 dark:text-blue-400" />
+            <GraduationCap className="h-7 w-7 text-gray-700 dark:text-gray-300" />
           </motion.div>
-          <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent hidden sm:inline">
+          <span className="text-lg font-bold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent hidden sm:inline">
             College Utility Hub
           </span>
         </motion.div>
@@ -86,7 +86,7 @@ export default function Navbar({ onMenuClick }) {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                 <Avatar className="h-10 w-10">
-                  <AvatarFallback className="bg-blue-100 text-blue-600">
+                  <AvatarFallback className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
                     {getInitials(user?.name)}
                   </AvatarFallback>
                 </Avatar>

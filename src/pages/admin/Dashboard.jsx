@@ -66,42 +66,42 @@ export default function AdminDashboard() {
       title: 'Total Notices', 
       value: stats?.totalNotices || 0, 
       icon: Bell, 
-      color: 'bg-blue-500',
+      color: 'bg-gray-500',
       href: '/admin/notices'
     },
     { 
       title: 'Total Events', 
       value: stats?.totalEvents || 0, 
       icon: Calendar, 
-      color: 'bg-purple-500',
+      color: 'bg-gray-600',
       href: '/admin/events'
     },
     { 
       title: 'Pending L&F', 
       value: stats?.pendingLostFound || 0, 
       icon: Search, 
-      color: 'bg-orange-500',
+      color: 'bg-gray-600',
       href: '/admin/lostfound'
     },
     { 
       title: 'Pending Feedback', 
       value: stats?.pendingFeedback || 0, 
       icon: MessageSquare, 
-      color: 'bg-green-500',
+      color: 'bg-gray-600',
       href: '/admin/feedback'
     },
     { 
       title: 'Total Students', 
       value: stats?.totalStudents || 0, 
       icon: Users, 
-      color: 'bg-indigo-500',
+      color: 'bg-gray-600',
       href: null
     },
     { 
       title: 'Upcoming Events', 
       value: stats?.upcomingEvents || 0, 
       icon: TrendingUp, 
-      color: 'bg-pink-500',
+      color: 'bg-gray-600',
       href: '/admin/events'
     },
   ]
@@ -175,16 +175,12 @@ export default function AdminDashboard() {
                       <p className="text-xs font-medium text-muted-foreground">{stat.title}</p>
                       <p className="text-2xl font-bold mt-1">{stat.value}</p>
                     </div>
-                    <motion.div 
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                      className={`h-10 w-10 rounded-lg ${stat.color} flex items-center justify-center`}
-                    >
+                    <div className={`h-10 w-10 rounded-md ${stat.color} flex items-center justify-center`}>
                       <stat.icon className="h-5 w-5 text-white" />
-                    </motion.div>
+                    </div>
                   </div>
                   {stat.href && (
-                    <Link to={stat.href} className="text-xs text-blue-600 dark:text-blue-400 hover:underline mt-2 inline-block">
+                    <Link to={stat.href} className="text-xs text-gray-700 dark:text-gray-300 hover:underline mt-2 inline-block">
                       View all <ArrowRight className="h-3 w-3 inline" />
                     </Link>
                   )}
@@ -324,7 +320,7 @@ export default function AdminDashboard() {
                         {item.itemName}
                       </TableCell>
                       <TableCell>
-                        <Badge className={item.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                        <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                           {item.type}
                         </Badge>
                       </TableCell>

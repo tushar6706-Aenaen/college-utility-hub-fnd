@@ -74,14 +74,14 @@ const benefits = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-background dark:bg-black">
       {/* Navigation */}
-      <nav className="border-b dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
+      <nav className="border-b dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              <GraduationCap className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+              <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
                 College Utility Hub
               </span>
             </div>
@@ -106,9 +106,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
           >
-            Your Complete
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent"> College </span>
-            Companion
+            Your Complete College Companion
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -167,15 +165,11 @@ export default function Home() {
           >
             {features.map((feature, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="border-2 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
+                <Card className="border-2 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
                   <CardHeader>
-                    <motion.div 
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="h-12 w-12 rounded-lg bg-blue-100 dark:bg-blue-950 flex items-center justify-center mb-4"
-                    >
-                      <feature.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                    </motion.div>
+                    <div className="h-12 w-12 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                    </div>
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -214,7 +208,7 @@ export default function Home() {
                     variants={fadeInUp}
                     className="flex items-center space-x-3"
                   >
-                    <CheckCircle2 className="h-5 w-5 text-green-500 dark:text-green-400 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
                     <span className="text-gray-700 dark:text-gray-300">{benefit}</span>
                   </motion.li>
                 ))}
@@ -227,12 +221,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <motion.div 
-                animate={{ rotate: [3, 4, 3] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 dark:from-blue-600 dark:to-indigo-600 rounded-3xl transform"
-              />
-              <Card className="relative rounded-3xl overflow-hidden">
+              <Card className="rounded-md overflow-hidden">
                 <CardContent className="p-8">
                   <motion.div 
                     initial="hidden"
@@ -241,7 +230,7 @@ export default function Home() {
                     variants={staggerContainer}
                     className="space-y-4"
                   >
-                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-red-50 dark:bg-red-950 rounded-lg">
+                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-red-50 dark:bg-red-950 rounded-md">
                       <motion.div 
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
@@ -249,17 +238,17 @@ export default function Home() {
                       />
                       <span className="font-medium text-red-700 dark:text-red-300">Urgent: Exam Schedule Released</span>
                     </motion.div>
-                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                      <div className="h-3 w-3 rounded-full bg-blue-500" />
-                      <span className="font-medium text-blue-700 dark:text-blue-300">New Event: Tech Fest 2024</span>
+                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-gray-100 dark:bg-gray-800 rounded-md">
+                      <div className="h-3 w-3 rounded-full bg-gray-500" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">New Event: Tech Fest 2024</span>
                     </motion.div>
-                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-green-50 dark:bg-green-950 rounded-lg">
-                      <div className="h-3 w-3 rounded-full bg-green-500" />
-                      <span className="font-medium text-green-700 dark:text-green-300">Found: Student ID Card</span>
+                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+                      <div className="h-3 w-3 rounded-full bg-gray-500" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">Found: Student ID Card</span>
                     </motion.div>
-                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <div className="h-3 w-3 rounded-full bg-purple-500" />
-                      <span className="font-medium text-purple-700 dark:text-purple-300">Feedback Resolved</span>
+                    <motion.div variants={fadeInUp} className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-md">
+                      <div className="h-3 w-3 rounded-full bg-gray-500" />
+                      <span className="font-medium text-gray-700 dark:text-gray-300">Feedback Resolved</span>
                     </motion.div>
                   </motion.div>
                 </CardContent>
@@ -270,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800 dark:bg-gray-900">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -281,7 +270,7 @@ export default function Home() {
           <motion.h2 variants={scaleIn} className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Started?
           </motion.h2>
-          <motion.p variants={fadeInUp} className="text-xl text-blue-100 mb-8">
+          <motion.p variants={fadeInUp} className="text-xl text-gray-100 mb-8">
             Join your fellow students and stay connected with everything happening on campus.
           </motion.p>
           <motion.div variants={fadeInUp}>
@@ -301,10 +290,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 dark:text-gray-500 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 dark:bg-black text-gray-400 dark:text-gray-500 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <GraduationCap className="h-6 w-6 text-blue-400" />
+            <GraduationCap className="h-6 w-6 text-gray-400 dark:text-gray-500" />
             <span className="text-lg font-semibold text-white dark:text-gray-100">College Utility Hub</span>
           </div>
           <p className="text-sm">

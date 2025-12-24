@@ -63,7 +63,7 @@ export default function Sidebar({ isOpen, onClose }) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-950 border-r dark:border-gray-800 transform transition-transform duration-200 ease-in-out md:translate-x-0 md:static md:z-0",
+          "fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-[#121212] border-r dark:border-gray-900 transform transition-transform duration-200 ease-in-out md:translate-x-0 md:static md:z-0",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -80,20 +80,9 @@ export default function Sidebar({ isOpen, onClose }) {
 
           {/* Role badge */}
           <div className="p-4">
-            <div className={cn(
-              "flex items-center space-x-2 px-3 py-2 rounded-lg",
-              user?.role === 'admin' 
-                ? "bg-purple-100 dark:bg-purple-950 dark:border dark:border-purple-800" 
-                : "bg-blue-100 dark:bg-blue-950 dark:border dark:border-blue-800"
-            )}>
-              <Shield className={cn(
-                "h-4 w-4",
-                user?.role === 'admin' ? "text-purple-600 dark:text-purple-400" : "text-blue-600 dark:text-blue-400"
-              )} />
-              <span className={cn(
-                "text-sm font-medium capitalize",
-                user?.role === 'admin' ? "text-purple-700 dark:text-purple-300" : "text-blue-700 dark:text-blue-300"
-              )}>
+            <div className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border dark:border-gray-700">
+              <Shield className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+              <span className="text-sm font-medium capitalize text-gray-800 dark:text-gray-200">
                 {user?.role} Portal
               </span>
             </div>
@@ -116,7 +105,7 @@ export default function Sidebar({ isOpen, onClose }) {
                     cn(
                       "flex items-center space-x-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                       isActive
-                        ? "bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300 dark:border dark:border-blue-800"
+                        ? "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100 dark:border dark:border-gray-600"
                         : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 hover:translate-x-1"
                     )
                   }

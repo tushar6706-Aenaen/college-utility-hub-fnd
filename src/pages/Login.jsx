@@ -48,7 +48,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background dark:bg-black flex items-center justify-center p-4">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -62,13 +62,8 @@ export default function Login() {
           className="text-center mb-8"
         >
           <Link to="/" className="inline-flex items-center space-x-2">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
-            >
-              <GraduationCap className="h-10 w-10 text-blue-600 dark:text-blue-400" />
-            </motion.div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+            <GraduationCap className="h-10 w-10 text-gray-700 dark:text-gray-300" />
+            <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               College Utility Hub
             </span>
           </Link>
@@ -79,7 +74,7 @@ export default function Login() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <Card className="shadow-xl border-0">
+          <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center">Welcome back</CardTitle>
             <CardDescription className="text-center">
@@ -155,9 +150,9 @@ export default function Login() {
                   'Sign In'
                 )}
               </Button>
-              <p className="text-sm text-center text-gray-600">
+              <p className="text-sm text-center text-gray-600 dark:text-gray-400">
                 Don't have an account?{' '}
-                <Link to="/register" className="text-blue-600 hover:underline font-medium">
+                <Link to="/register" className="text-gray-800 dark:text-gray-200 hover:underline font-medium">
                   Register here
                 </Link>
               </p>

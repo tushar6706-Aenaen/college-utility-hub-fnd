@@ -160,13 +160,13 @@ export default function ManageAdmins() {
       </div>
 
       {/* Info Card */}
-      <Card className="bg-blue-50 border-blue-200">
+      <Card className="bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <CardContent className="p-4">
           <div className="flex items-start space-x-3">
-            <Shield className="h-5 w-5 text-blue-600 mt-0.5" />
+            <Shield className="h-5 w-5 text-gray-700 dark:text-gray-300 mt-0.5" />
             <div>
-              <p className="font-medium text-blue-900">Admin Privileges</p>
-              <p className="text-sm text-blue-700 mt-1">
+              <p className="font-medium text-gray-900 dark:text-gray-100">Admin Privileges</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
                 Admins can create notices, manage events, moderate lost & found posts, 
                 view feedback, and create other admin accounts.
               </p>

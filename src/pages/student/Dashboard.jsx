@@ -63,10 +63,10 @@ export default function StudentDashboard() {
   }
 
   const quickActions = [
-    { title: 'View Notices', href: '/student/notices', icon: Bell, color: 'bg-blue-500' },
-    { title: 'Browse Events', href: '/student/events', icon: Calendar, color: 'bg-purple-500' },
-    { title: 'Lost & Found', href: '/student/lostfound', icon: Search, color: 'bg-green-500' },
-    { title: 'Submit Feedback', href: '/student/feedback', icon: MessageSquare, color: 'bg-orange-500' },
+    { title: 'View Notices', href: '/student/notices', icon: Bell, color: 'bg-gray-500' },
+    { title: 'Browse Events', href: '/student/events', icon: Calendar, color: 'bg-gray-500' },
+    { title: 'Lost & Found', href: '/student/lostfound', icon: Search, color: 'bg-gray-500' },
+    { title: 'Submit Feedback', href: '/student/feedback', icon: MessageSquare, color: 'bg-gray-500' },
   ]
 
   if (loading) {
@@ -118,13 +118,9 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Active Notices</p>
                     <p className="text-3xl font-bold">{stats?.totalNotices || 0}</p>
                   </div>
-                  <motion.div 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-950 flex items-center justify-center"
-                  >
-                    <Bell className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                  </motion.div>
+                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <Bell className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -140,13 +136,9 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Upcoming Events</p>
                     <p className="text-3xl font-bold">{stats?.upcomingEvents || 0}</p>
                   </div>
-                  <motion.div 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-950 flex items-center justify-center"
-                  >
-                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-                  </motion.div>
+                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <Calendar className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -162,13 +154,9 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">My L&F Posts</p>
                     <p className="text-3xl font-bold">{stats?.myLostFound || 0}</p>
                   </div>
-                  <motion.div 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-950 flex items-center justify-center"
-                  >
-                    <Search className="h-6 w-6 text-green-600 dark:text-green-400" />
-                  </motion.div>
+                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <Search className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -184,13 +172,9 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Quick Actions</p>
                     <p className="text-3xl font-bold">4</p>
                   </div>
-                  <motion.div 
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-12 w-12 rounded-full bg-orange-100 dark:bg-orange-950 flex items-center justify-center"
-                  >
-                    <MessageSquare className="h-6 w-6 text-orange-600 dark:text-orange-400" />
-                  </motion.div>
+                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                    <MessageSquare className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -211,7 +195,7 @@ export default function StudentDashboard() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
                   <CardContent className="p-4 flex items-center space-x-4">
-                    <div className={`h-10 w-10 rounded-lg ${action.color} flex items-center justify-center`}>
+                    <div className={`h-10 w-10 rounded-md ${action.color} flex items-center justify-center`}>
                       <action.icon className="h-5 w-5 text-white" />
                     </div>
                     <div className="flex-1">
@@ -247,9 +231,9 @@ export default function StudentDashboard() {
                 notices.map((notice) => (
                   <div
                     key={notice._id}
-                    className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                   >
-                    <div className={`h-2 w-2 rounded-full mt-2 ${notice.category === 'Urgent' ? 'bg-red-500' : 'bg-blue-500'}`} />
+                    <div className={`h-2 w-2 rounded-full mt-2 ${notice.category === 'Urgent' ? 'bg-red-500' : 'bg-gray-500'}`} />
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-sm truncate">{notice.title}</p>
                       <div className="flex items-center space-x-2 mt-1">
@@ -289,7 +273,7 @@ export default function StudentDashboard() {
                 events.map((event) => (
                   <div
                     key={event._id}
-                    className="p-3 rounded-lg border hover:border-blue-200 transition-colors"
+                    className="p-3 rounded-md border hover:border-gray-400 dark:hover:border-gray-600 transition-colors"
                   >
                     <p className="font-medium">{event.title}</p>
                     <div className="flex flex-wrap items-center gap-3 mt-2 text-sm text-muted-foreground">

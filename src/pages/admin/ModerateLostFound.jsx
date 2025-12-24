@@ -184,7 +184,7 @@ export default function ModerateLostFound() {
                           {post.itemName}
                         </TableCell>
                         <TableCell>
-                          <Badge className={post.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                          <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                             {post.type}
                           </Badge>
                         </TableCell>
@@ -258,7 +258,7 @@ export default function ModerateLostFound() {
                 <Card key={post._id} className="border-yellow-200 bg-yellow-50/50">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
-                      <Badge className={post.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                      <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         {post.type}
                       </Badge>
                       <Badge className="bg-yellow-100 text-yellow-700">Pending</Badge>
@@ -285,7 +285,7 @@ export default function ModerateLostFound() {
           ) : (
             <Card>
               <CardContent className="p-12 text-center">
-                <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
+                <CheckCircle className="h-12 w-12 text-gray-500 mx-auto mb-4" />
                 <h3 className="text-lg font-medium">All caught up!</h3>
                 <p className="text-muted-foreground">No pending posts to review</p>
               </CardContent>
@@ -324,7 +324,7 @@ export default function ModerateLostFound() {
             <>
               <DialogHeader>
                 <div className="flex items-center gap-2 mb-2">
-                  <Badge className={selectedPost.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                  <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     {selectedPost.type}
                   </Badge>
                   <Badge className={getCategoryColor(selectedPost.category)}>

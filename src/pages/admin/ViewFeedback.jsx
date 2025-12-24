@@ -88,7 +88,7 @@ export default function ViewFeedback() {
                 <p className="text-sm font-medium text-muted-foreground">Total Feedback</p>
                 <p className="text-2xl font-bold">{pagination.count || feedback.length}</p>
               </div>
-              <MessageSquare className="h-8 w-8 text-blue-500" />
+              <MessageSquare className="h-8 w-8 text-gray-500 dark:text-gray-400" />
             </div>
           </CardContent>
         </Card>
@@ -110,7 +110,7 @@ export default function ViewFeedback() {
                 <p className="text-sm font-medium text-muted-foreground">Resolved</p>
                 <p className="text-2xl font-bold">{feedback.filter(f => f.status === 'resolved').length}</p>
               </div>
-              <CheckCircle className="h-8 w-8 text-green-500" />
+              <CheckCircle className="h-8 w-8 text-gray-500" />
             </div>
           </CardContent>
         </Card>
@@ -279,7 +279,7 @@ export default function ViewFeedback() {
           ) : (
             <Card>
               <CardContent className="p-12 text-center">
-                <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
+                <CheckCircle className="h-12 w-12 text-gray-500 mx-auto mb-4" />
                 <h3 className="text-lg font-medium">All caught up!</h3>
                 <p className="text-muted-foreground">No pending feedback to review</p>
               </CardContent>
@@ -341,7 +341,7 @@ export default function ViewFeedback() {
               <div className="space-y-4 mt-4">
                 <div>
                   <p className="text-sm font-medium mb-2">Message</p>
-                  <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="bg-gray-50 rounded-md p-4">
                     <p className="text-gray-700 whitespace-pre-wrap">{selectedFeedback.message}</p>
                   </div>
                 </div>

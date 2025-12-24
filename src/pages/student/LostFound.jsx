@@ -341,7 +341,7 @@ export default function StudentLostFound() {
                 <Card key={post._id} className="hover:shadow-md transition-shadow">
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
-                      <Badge className={post.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                      <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         {post.type === 'lost' ? 'Lost' : 'Found'}
                       </Badge>
                       <Badge variant="secondary" className={getCategoryColor(post.category)}>
@@ -396,7 +396,7 @@ export default function StudentLostFound() {
                 <Card key={post._id}>
                   <CardHeader className="pb-3">
                     <div className="flex items-start justify-between">
-                      <Badge className={post.type === 'lost' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}>
+                      <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         {post.type === 'lost' ? 'Lost' : 'Found'}
                       </Badge>
                       <Badge className={getStatusColor(post.status)}>
