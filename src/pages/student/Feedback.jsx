@@ -61,14 +61,14 @@ export default function StudentFeedback() {
       <div className="max-w-2xl mx-auto">
         <Card>
           <CardContent className="p-12 text-center">
-            <div className="h-16 w-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+            <div className="h-16 w-16 rounded-full bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="h-8 w-8 text-indigo-700 dark:text-indigo-300" />
             </div>
             <h2 className="text-2xl font-bold mb-2">Thank You!</h2>
             <p className="text-muted-foreground mb-6">
               Your feedback has been submitted successfully. We appreciate you taking the time to help us improve.
             </p>
-            <Button onClick={submitAnother}>Submit Another Feedback</Button>
+            <Button variant="outline" onClick={submitAnother}>Submit Another Feedback</Button>
           </CardContent>
         </Card>
       </div>
@@ -79,7 +79,7 @@ export default function StudentFeedback() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Submit Feedback</h1>
+        <h1 className="text-2xl font-semibold text-gray-200">Submit Feedback</h1>
         <p className="text-muted-foreground mt-1">
           Help us improve by sharing your thoughts and suggestions
         </p>

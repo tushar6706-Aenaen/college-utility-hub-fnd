@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { formatDate, timeAgo, getCategoryColor, getStatusColor } from '@/lib/utils'
+import { formatDate, timeAgo, getCategoryColor, getStatusColor, isNew } from '@/lib/utils'
 import {
   Bell,
   Calendar,
@@ -66,42 +66,42 @@ export default function AdminDashboard() {
       title: 'Total Notices', 
       value: stats?.totalNotices || 0, 
       icon: Bell, 
-      color: 'bg-gray-500',
+      color: 'bg-indigo-500 dark:bg-indigo-600',
       href: '/admin/notices'
     },
     { 
       title: 'Total Events', 
       value: stats?.totalEvents || 0, 
       icon: Calendar, 
-      color: 'bg-gray-600',
+      color: 'bg-blue-500 dark:bg-blue-600',
       href: '/admin/events'
     },
     { 
       title: 'Pending L&F', 
       value: stats?.pendingLostFound || 0, 
       icon: Search, 
-      color: 'bg-gray-600',
+      color: 'bg-teal-500 dark:bg-teal-600',
       href: '/admin/lostfound'
     },
     { 
       title: 'Pending Feedback', 
       value: stats?.pendingFeedback || 0, 
       icon: MessageSquare, 
-      color: 'bg-gray-600',
+      color: 'bg-orange-500 dark:bg-orange-600',
       href: '/admin/feedback'
     },
     { 
       title: 'Total Students', 
       value: stats?.totalStudents || 0, 
       icon: Users, 
-      color: 'bg-gray-600',
+      color: 'bg-emerald-500 dark:bg-emerald-600',
       href: null
     },
     { 
       title: 'Upcoming Events', 
       value: stats?.upcomingEvents || 0, 
       icon: TrendingUp, 
-      color: 'bg-gray-600',
+      color: 'bg-purple-500 dark:bg-purple-600',
       href: '/admin/events'
     },
   ]
@@ -130,7 +130,7 @@ export default function AdminDashboard() {
         className="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
       >
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Admin Dashboard</h1>
+          <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Admin Dashboard</h1>
           <p className="text-muted-foreground mt-1">
             Welcome back, {user?.name}. Here's your overview.
           </p>
@@ -167,26 +167,24 @@ export default function AdminDashboard() {
       >
         {statCards.map((stat, index) => (
           <motion.div key={index} variants={item}>
-            <motion.div whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300 }}>
-              <Card className="hover:shadow-md transition-shadow">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-medium text-muted-foreground">{stat.title}</p>
-                      <p className="text-2xl font-bold mt-1">{stat.value}</p>
-                    </div>
-                    <div className={`h-10 w-10 rounded-md ${stat.color} flex items-center justify-center`}>
-                      <stat.icon className="h-5 w-5 text-white" />
-                    </div>
+            <Card className="border-gray-200 dark:border-gray-800">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className={`h-10 w-10 rounded-md ${stat.color} flex items-center justify-center`}>
+                    <stat.icon className="h-5 w-5 text-white" />
                   </div>
                   {stat.href && (
-                    <Link to={stat.href} className="text-xs text-gray-700 dark:text-gray-300 hover:underline mt-2 inline-block">
-                      View all <ArrowRight className="h-3 w-3 inline" />
+                    <Link to={stat.href}>
+                      <ArrowRight className="h-4 w-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors" />
                     </Link>
                   )}
-                </CardContent>
-              </Card>
-            </motion.div>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{stat.title}</p>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
         ))}
       </motion.div>
@@ -223,7 +221,12 @@ export default function AdminDashboard() {
                   activity.notices.map((notice) => (
                     <TableRow key={notice._id}>
                       <TableCell className="font-medium truncate max-w-[200px]">
-                        {notice.title}
+                        <div className="flex items-center gap-2">
+                          {isNew(notice.createdAt) && (
+                            <span className="h-2 w-2 rounded-full bg-green-500" />
+                          )}
+                          <span>{notice.title}</span>
+                        </div>
                       </TableCell>
                       <TableCell>
                         <Badge className={getCategoryColor(notice.category)}>
@@ -272,7 +275,12 @@ export default function AdminDashboard() {
                   activity.events.map((event) => (
                     <TableRow key={event._id}>
                       <TableCell className="font-medium truncate max-w-[200px]">
-                        {event.title}
+                        <div className="flex items-center gap-2">
+                          {isNew(event.createdAt) && (
+                            <span className="h-2 w-2 rounded-full bg-green-500" />
+                          )}
+                          <span>{event.title}</span>
+                        </div>
                       </TableCell>
                       <TableCell>{formatDate(event.date)}</TableCell>
                       <TableCell className="text-muted-foreground">
@@ -317,7 +325,12 @@ export default function AdminDashboard() {
                   activity.lostFound.map((item) => (
                     <TableRow key={item._id}>
                       <TableCell className="font-medium truncate max-w-[200px]">
-                        {item.itemName}
+                        <div className="flex items-center gap-2">
+                          {isNew(item.createdAt) && (
+                            <span className="h-2 w-2 rounded-full bg-green-500" />
+                          )}
+                          <span>{item.itemName}</span>
+                        </div>
                       </TableCell>
                       <TableCell>
                         <Badge className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
@@ -368,10 +381,17 @@ export default function AdminDashboard() {
                   activity.feedback.map((item) => (
                     <TableRow key={item._id}>
                       <TableCell className="font-medium truncate max-w-[200px]">
-                        {item.subject}
-                        {item.isAnonymous && (
-                          <span className="text-xs text-muted-foreground ml-1">(Anonymous)</span>
-                        )}
+                        <div className="flex items-center gap-2">
+                          {isNew(item.createdAt) && (
+                            <span className="h-2 w-2 rounded-full bg-green-500" />
+                          )}
+                          <span>
+                            {item.subject}
+                            {item.isAnonymous && (
+                              <span className="text-xs text-muted-foreground ml-1">(Anonymous)</span>
+                            )}
+                          </span>
+                        </div>
                       </TableCell>
                       <TableCell>
                         <Badge className={getCategoryColor(item.category)}>

@@ -38,6 +38,13 @@ export function timeAgo(date) {
   return 'Just now'
 }
 
+export function isNew(date) {
+  const now = new Date()
+  const created = new Date(date)
+  const hoursDiff = (now - created) / (1000 * 60 * 60)
+  return hoursDiff < 24
+}
+
 export function getCategoryColor(category) {
   return 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200'
 }

@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatDate, timeAgo, getCategoryColor } from '@/lib/utils'
+import { formatDate, timeAgo, getCategoryColor, isNew } from '@/lib/utils'
 import { Search, Bell, Filter, X } from 'lucide-react'
 
 const categories = ['All', 'Academic', 'Events', 'General', 'Urgent', 'Exam']
@@ -58,7 +58,7 @@ export default function StudentNotices() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Notice Board</h1>
+          <h1 className="text-2xl font-semibold text-gray-200">Notice Board</h1>
           <p className="text-muted-foreground mt-1">
             Stay updated with all college announcements
           </p>
@@ -89,7 +89,7 @@ export default function StudentNotices() {
                 ))}
               </SelectContent>
             </Select>
-            <Button type="submit">Search</Button>
+            <Button type="submit" variant="outline">Search</Button>
             {(search || category !== 'All') && (
               <Button type="button" variant="ghost" onClick={clearFilters}>
                 <X className="h-4 w-4 mr-1" /> Clear
@@ -129,14 +129,19 @@ export default function StudentNotices() {
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <Badge className={getCategoryColor(notice.category)}>
-                      {notice.category}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      {isNew(notice.createdAt) && (
+                        <span className="h-2 w-2 rounded-full bg-green-500" />
+                      )}
+                      <Badge className={getCategoryColor(notice.category)}>
+                        {notice.category}
+                      </Badge>
+                    </div>
                     {notice.category === 'Urgent' && (
-                      <Bell className="h-4 w-4 text-red-500 animate-pulse" />
+                      <Bell className="h-4 w-4 text-red-500" />
                     )}
                   </div>
-                  <CardTitle className="text-lg mt-2 line-clamp-2">{notice.title}</CardTitle>
+                  <CardTitle className="text-base font-medium mt-2 line-clamp-2">{notice.title}</CardTitle>
                   <CardDescription>{timeAgo(notice.createdAt)}</CardDescription>
                 </CardHeader>
                 <CardContent>

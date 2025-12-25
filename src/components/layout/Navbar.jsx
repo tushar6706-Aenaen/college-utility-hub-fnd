@@ -32,7 +32,7 @@ export default function Navbar({ onMenuClick }) {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-950/95 dark:supports-[backdrop-filter]:bg-gray-950/60 dark:border-gray-800">
+    <header className="sticky top-0 z-40 border-b border-gray-200/20 dark:border-gray-800/20 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg">
       <div className="flex h-16 items-center gap-4 px-4 sm:px-6">
         <Button
           variant="ghost"
@@ -44,21 +44,12 @@ export default function Navbar({ onMenuClick }) {
           <span className="sr-only">Toggle menu</span>
         </Button>
 
-        <motion.div 
-          className="flex items-center space-x-2"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          >
-            <GraduationCap className="h-7 w-7 text-gray-700 dark:text-gray-300" />
-          </motion.div>
-          <span className="text-lg font-bold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent hidden sm:inline">
+        <div className="flex items-center space-x-2">
+          <GraduationCap className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+          <span className="text-base font-semibold text-gray-900 dark:text-gray-100 hidden sm:inline">
             College Utility Hub
           </span>
-        </motion.div>
+        </div>
 
         <div className="flex-1" />
 
@@ -71,22 +62,22 @@ export default function Navbar({ onMenuClick }) {
             className="h-9 w-9"
           >
             {theme === 'light' ? (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             ) : (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             )}
             <span className="sr-only">Toggle theme</span>
           </Button>
           <div className="hidden sm:block text-right">
-            <p className="text-sm font-medium">{user?.name}</p>
-            <p className="text-xs text-muted-foreground capitalize">{user?.role}</p>
+            <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{user?.name}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{user?.role}</p>
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                 <Avatar className="h-10 w-10">
-                  <AvatarFallback className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                  <AvatarFallback className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
                     {getInitials(user?.name)}
                   </AvatarFallback>
                 </Avatar>
@@ -109,7 +100,7 @@ export default function Navbar({ onMenuClick }) {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-red-600">
+              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
                 <LogOut className="mr-2 h-4 w-4" />
                 Log out
               </DropdownMenuItem>

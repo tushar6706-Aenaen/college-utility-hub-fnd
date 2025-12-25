@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatDate, timeAgo, getCategoryColor } from '@/lib/utils'
+import { formatDate, timeAgo, getCategoryColor, isNew } from '@/lib/utils'
 import {
   Bell,
   Calendar,
@@ -118,8 +118,8 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Active Notices</p>
                     <p className="text-3xl font-bold">{stats?.totalNotices || 0}</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <Bell className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  <div className="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center">
+                    <Bell className="h-6 w-6 text-indigo-700 dark:text-indigo-300" />
                   </div>
                 </div>
               </CardContent>
@@ -136,8 +136,8 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Upcoming Events</p>
                     <p className="text-3xl font-bold">{stats?.upcomingEvents || 0}</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <Calendar className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  <div className="h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-950 flex items-center justify-center">
+                    <Calendar className="h-6 w-6 text-blue-700 dark:text-blue-300" />
                   </div>
                 </div>
               </CardContent>
@@ -154,8 +154,8 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">My L&F Posts</p>
                     <p className="text-3xl font-bold">{stats?.myLostFound || 0}</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <Search className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  <div className="h-12 w-12 rounded-full bg-teal-100 dark:bg-teal-950 flex items-center justify-center">
+                    <Search className="h-6 w-6 text-teal-700 dark:text-teal-300" />
                   </div>
                 </div>
               </CardContent>
@@ -172,8 +172,8 @@ export default function StudentDashboard() {
                     <p className="text-sm font-medium text-muted-foreground">Quick Actions</p>
                     <p className="text-3xl font-bold">4</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <MessageSquare className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  <div className="h-12 w-12 rounded-full bg-orange-100 dark:bg-orange-950 flex items-center justify-center">
+                    <MessageSquare className="h-6 w-6 text-orange-700 dark:text-orange-300" />
                   </div>
                 </div>
               </CardContent>
@@ -233,7 +233,7 @@ export default function StudentDashboard() {
                     key={notice._id}
                     className="flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                   >
-                    <div className={`h-2 w-2 rounded-full mt-2 ${notice.category === 'Urgent' ? 'bg-red-500' : 'bg-gray-500'}`} />
+                    <div className={`h-2 w-2 rounded-full mt-2 ${notice.category === 'Urgent' ? 'bg-red-500' : isNew(notice.createdAt) ? 'bg-green-500' : 'bg-gray-500'}`} />
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-sm truncate">{notice.title}</p>
                       <div className="flex items-center space-x-2 mt-1">

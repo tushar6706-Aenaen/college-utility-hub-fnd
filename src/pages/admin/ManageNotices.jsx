@@ -189,7 +189,7 @@ export default function ManageNotices() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Manage Notices</h1>
+          <h1 className="text-2xl font-semibold text-gray-200">Manage Notices</h1>
           <p className="text-muted-foreground mt-1">
             Create, edit, and manage college notices
           </p>
@@ -280,7 +280,7 @@ export default function ManageNotices() {
                     </TableCell>
                     <TableCell>{formatDate(notice.createdAt)}</TableCell>
                     <TableCell>
-                      <Badge variant={notice.isActive ? "default" : "secondary"}>
+                      <Badge className={notice.isActive ? "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200" : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300"}>
                         {notice.isActive ? 'Active' : 'Inactive'}
                       </Badge>
                     </TableCell>

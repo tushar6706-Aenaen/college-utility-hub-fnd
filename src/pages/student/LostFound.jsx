@@ -246,7 +246,7 @@ export default function StudentLostFound() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Lost & Found</h1>
+          <h1 className="text-2xl font-semibold text-gray-200">Lost & Found</h1>
           <p className="text-muted-foreground mt-1">
             Report lost items or help others find theirs
           </p>
@@ -315,7 +315,7 @@ export default function StudentLostFound() {
                     ))}
                   </SelectContent>
                 </Select>
-                <Button type="submit">Search</Button>
+                <Button type="submit" variant="outline">Search</Button>
               </form>
             </CardContent>
           </Card>

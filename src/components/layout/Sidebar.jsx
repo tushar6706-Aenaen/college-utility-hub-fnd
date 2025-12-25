@@ -80,9 +80,9 @@ export default function Sidebar({ isOpen, onClose }) {
 
           {/* Role badge */}
           <div className="p-4">
-            <div className="flex items-center space-x-2 px-3 py-2">
-              <Shield className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-              <span className="text-sm font-medium capitalize text-gray-600 dark:text-gray-400">
+            <div className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border dark:border-gray-700">
+              <Shield className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+              <span className="text-sm font-medium capitalize text-gray-800 dark:text-gray-200">
                 {user?.role} Portal
               </span>
             </div>
@@ -103,14 +103,14 @@ export default function Sidebar({ isOpen, onClose }) {
                   onClick={onClose}
                   className={({ isActive }) =>
                     cn(
-                      "flex items-center space-x-3 rounded-md px-3 py-2.5 text-sm font-medium transition-all border-l-2",
+                      "flex items-center space-x-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                       isActive
-                        ? "border-l-amber-500 text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-900"
-                        : "border-l-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
+                        ? "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100 dark:border dark:border-gray-600"
+                        : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 hover:translate-x-1"
                     )
                   }
                 >
-                  <item.icon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                  <item.icon className="h-5 w-5" />
                   <span>{item.title}</span>
                 </NavLink>
               </motion.div>

@@ -93,7 +93,7 @@ export default function ModerateLostFound() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Moderate Lost & Found</h1>
+        <h1 className="text-2xl font-semibold text-gray-200">Moderate Lost & Found</h1>
         <p className="text-muted-foreground mt-1">
           Review and approve student submissions
         </p>
@@ -206,7 +206,7 @@ export default function ModerateLostFound() {
                             </Button>
                             {post.status === 'pending' && (
                               <>
-                                <Button size="sm" variant="default" onClick={() => handleApprove(post._id)}>
+                                <Button size="sm" variant="outline" onClick={() => handleApprove(post._id)}>
                                   <CheckCircle className="h-4 w-4" />
                                 </Button>
                                 <Button size="sm" variant="destructive" onClick={() => handleReject(post._id)}>

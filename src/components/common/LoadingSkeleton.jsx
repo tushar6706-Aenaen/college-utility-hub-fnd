@@ -52,5 +52,18 @@ export const PageSkeleton = () => (
   </div>
 )
 
+const fetchNotices = async (page = 1) => {
+  setLoading(true)
+  const startTime = Date.now()
+  
+  try {
+    // ... your API call
+  } finally {
+    const elapsed = Date.now() - startTime
+    const minDelay = Math.max(0, 300 - elapsed)
+    setTimeout(() => setLoading(false), minDelay)
+  }
+}
+
 export default { CardSkeleton, TableSkeleton, StatCardSkeleton, PageSkeleton }
 

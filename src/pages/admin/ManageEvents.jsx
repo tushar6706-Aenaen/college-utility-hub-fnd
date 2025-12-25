@@ -228,7 +228,7 @@ export default function ManageEvents() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Manage Events</h1>
+          <h1 className="text-2xl font-semibold text-gray-200">Manage Events</h1>
           <p className="text-muted-foreground mt-1">
             Create, edit, and manage college events
           </p>

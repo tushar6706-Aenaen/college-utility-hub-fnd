@@ -73,7 +73,7 @@ export default function ViewFeedback() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Feedback</h1>
+        <h1 className="text-2xl font-semibold text-gray-200">Feedback</h1>
         <p className="text-muted-foreground mt-1">
           View and manage student feedback submissions
         </p>
@@ -158,7 +158,7 @@ export default function ViewFeedback() {
                     ))}
                   </SelectContent>
                 </Select>
-                <Button type="submit">Search</Button>
+                <Button type="submit" variant="outline">Search</Button>
               </form>
             </CardContent>
           </Card>
@@ -216,7 +216,7 @@ export default function ViewFeedback() {
                               <Eye className="h-4 w-4" />
                             </Button>
                             {item.status === 'pending' && (
-                              <Button size="sm" onClick={() => handleResolve(item._id)}>
+                              <Button size="sm" variant="outline" onClick={() => handleResolve(item._id)}>
                                 <CheckCircle className="h-4 w-4 mr-1" /> Resolve
                               </Button>
                             )}
@@ -268,7 +268,7 @@ export default function ViewFeedback() {
                       <Button size="sm" variant="outline" className="flex-1" onClick={() => setSelectedFeedback(item)}>
                         <Eye className="h-4 w-4 mr-1" /> View Details
                       </Button>
-                      <Button size="sm" className="flex-1" onClick={() => handleResolve(item._id)}>
+                      <Button size="sm" variant="outline" className="flex-1" onClick={() => handleResolve(item._id)}>
                         <CheckCircle className="h-4 w-4 mr-1" /> Mark Resolved
                       </Button>
                     </div>

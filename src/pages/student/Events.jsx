@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Skeleton } from '@/components/ui/skeleton'
-import { formatDate, getCategoryColor } from '@/lib/utils'
+import { formatDate, getCategoryColor, isNew } from '@/lib/utils'
 import { Search, Calendar, Clock, MapPin, User, Filter, X } from 'lucide-react'
 
 const categories = ['All', 'Cultural', 'Technical', 'Sports', 'Workshop', 'Seminar']
@@ -60,7 +60,7 @@ export default function StudentEvents() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Events</h1>
+          <h1 className="text-2xl font-semibold text-gray-200">Events</h1>
           <p className="text-muted-foreground mt-1">
             Discover upcoming events and activities
           </p>
@@ -91,7 +91,7 @@ export default function StudentEvents() {
                 ))}
               </SelectContent>
             </Select>
-            <Button type="submit">Search</Button>
+            <Button type="submit" variant="outline">Search</Button>
             {(search || category !== 'All') && (
               <Button type="button" variant="ghost" onClick={clearFilters}>
                 <X className="h-4 w-4 mr-1" /> Clear
@@ -131,9 +131,14 @@ export default function StudentEvents() {
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <Badge className={getCategoryColor(event.category)}>
-                      {event.category}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      {isNew(event.createdAt) && (
+                        <span className="h-2 w-2 rounded-full bg-green-500" />
+                      )}
+                      <Badge className={getCategoryColor(event.category)}>
+                        {event.category}
+                      </Badge>
+                    </div>
                     {isUpcoming(event.date) ? (
                       <Badge variant="secondary" className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                         Upcoming
@@ -142,7 +147,7 @@ export default function StudentEvents() {
                       <Badge variant="secondary">Past</Badge>
                     )}
                   </div>
-                  <CardTitle className="text-lg mt-2 line-clamp-2">{event.title}</CardTitle>
+                  <CardTitle className="text-base font-medium mt-2 line-clamp-2">{event.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 text-sm text-muted-foreground">
