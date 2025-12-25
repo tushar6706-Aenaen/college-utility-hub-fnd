@@ -76,26 +76,44 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background dark:bg-black">
       {/* Navigation */}
-      <nav className="border-b dark:border-gray-800 bg-white dark:bg-gray-950 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <GraduationCap className="h-8 w-8 text-gray-700 dark:text-gray-300" />
-              <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                College Utility Hub
-              </span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link to="/login">
-                <Button variant="ghost">Login</Button>
-              </Link>
-              <Link to="/register">
-                <Button>Get Started</Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+<nav className="sticky top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-950/70 border-b border-white/20 dark:border-gray-800">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="flex justify-between items-center h-16">
+
+      {/* Logo */}
+      <Link
+        to="/"
+        className="flex items-center gap-2 font-semibold tracking-wide text-gray-900 dark:text-gray-100 hover:opacity-90 transition"
+      >
+        <span className="text-lg">College Utility Hub</span>
+      </Link>
+
+      {/* Right Actions */}
+      <div className="flex items-center gap-3">
+
+        {/* Login */}
+        <Link to="/login">
+          <button className="px-4 py-1.5 text-sm rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            Login
+          </button>
+        </Link>
+
+        {/* Get Started CTA */}
+        <Link to="/register">
+          <button className="relative px-5 py-2 text-sm font-medium rounded-md text-white bg-gradient-to-r from-orange-500 to-amber-500 shadow-lg shadow-orange-500/30 hover:scale-105 transition-transform">
+            Get Started
+            <span className="absolute inset-0 rounded-md ring-1 ring-orange-400/40"></span>
+          </button>
+        </Link>
+
+      </div>
+    </div>
+  </div>
+
+  {/* Accent Glow Line */}
+  <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
+</nav>
+
 
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
